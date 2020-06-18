@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<form action="#" th:action="@{/postemploymentopp}" th:object="${employmentOppForm}" method="post">
+<h1>Post an Employment Opportunity</h1>
+<p> company </p>
+<input type="text" th:field="*{company}" />
+<p> location </p>
+<input type="text" th:field="*{location}" />
+<p> field </p>
+<input type="text" th:field="*{field}" />
+<p> job title </p>
+<input type="text" th:field="*{jobTitle}" />
+<p> start date </p>
+<input type="date" th:field="*{startDate}" />
+<p> end date </p>
+<input type="date" th:field="*{endDate}" />
+<p>  wage/salary </p>
+<input type="text" th:field="*{wage}" />
+<p> type </p>
+<table>
+<tr><td>
+<ul>
+<li th:each="type : ${type}">
+<input type="radio" th:field="*{type}" th:value="${type}" />
+<label th:for="${#ids.prev('type')}" th:text="${type}"></label>
+</ul>
+</table>
+<input type="submit" value="Submit">
+</form>
+<p><a href="home"> Go To Home Page</a></p>
